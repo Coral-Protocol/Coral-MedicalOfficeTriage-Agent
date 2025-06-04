@@ -1,28 +1,27 @@
-# Medical Voice Agents with Deepgram
+# Medical Office Triage Voice Agent
 
-A sophisticated medical office triage system powered by voice AI agents that can intelligently route patients to appropriate departments through natural conversation.
+**Responsibility:** The Medical Office Triage Voice Agent is an intelligent multi-agent voice system that automates patient routing and support in medical office environments. It uses real-time voice processing to understand patient needs and seamlessly transfers them between specialized departments (Triage, Support, and Billing) while maintaining conversation context. The system leverages Deepgram for speech-to-text, Cartesia for text-to-speech, OpenAI for natural language understanding, and LiveKit for real-time communication with noise cancellation capabilities.
 
-## 🎯 Functionality
+## Details
 
-This application provides an intelligent medical office triage system featuring:
+**Framework:** LiveKit Agents  
+**Tools used:** Deepgram STT, Cartesia TTS, OpenAI LLM, Silero VAD, LiveKit Plugins  
+**AI model:** GPT-4o-mini  
+**Date added:** June 2025  
+**License:** MIT  
+**Original source:** [LiveKit Python Agents Examples - Medical Office Triage](https://github.com/livekit-examples/python-agents-examples/tree/main/complex-agents/medical_office_triage)
 
-- **Multi-Agent Voice System**: Three specialized AI agents (Triage, Support, and Billing) that work together seamlessly
-- **Real-time Voice Processing**: Uses Deepgram for speech-to-text, Cartesia for text-to-speech, and OpenAI for natural language understanding
-- **Intelligent Routing**: Automatically transfers patients between departments based on their needs
-
-### Agent Capabilities:
-
-- **Triage Agent**: Initial patient intake, determines appropriate department
-- **Support Agent**: Handles medical services, appointments, and general patient support
-- **Billing Agent**: Manages insurance inquiries, payment questions, and billing support
-
-## 🚀 Setup Instructions
-
-### 1. Environment Configuration
-
-First, copy the example environment file and add your API keys:
+## Install Dependencies:
 
 ```bash
+pip install uv
+uv sync
+```
+
+## Configure Environment Variables:
+
+```bash
+# Copy example environment file
 cp env.example .env
 ```
 
@@ -32,52 +31,36 @@ Edit the `.env` file and add your API keys:
 - Deepgram API key (get from [Deepgram Console](https://console.deepgram.com))
 - Cartesia API key (get from [Cartesia Console](https://cartesia.ai))
 
-### 2. Install Dependencies
-
-Install UV package manager:
-
-```bash
-pip install uv
-```
-
-Sync project dependencies:
-
-```bash
-uv sync
-```
-
-### 3. Run the Application
-
-Start the medical triage console:
+## Run agent command:
 
 ```bash
 uv run triage.py console
 ```
 
-The system will start with the Triage Agent and wait for voice input. Speak naturally to interact with the medical office system.
+## Agent Capabilities:
 
-## 🔧 Technical Stack
+- **Triage Agent**: Initial patient intake, determines appropriate department routing
+- **Support Agent**: Handles medical services, appointments, and general patient support inquiries
+- **Billing Agent**: Manages insurance inquiries, payment questions, and billing support
 
-- **Python 3.13+**: Modern Python with type hints
-- **LiveKit Agents**: Real-time voice agent framework
-- **OpenAI GPT-4o-mini**: Language understanding and generation
-- **Deepgram**: Speech-to-text processing
-- **Cartesia**: High-quality text-to-speech
-- **Silero VAD**: Voice activity detection
-- **UV**: Fast Python package manager
+## Technical Features:
 
-## 📁 Project Structure
+- **Multi-Agent Voice System**: Three specialized AI agents working seamlessly together
+- **Real-time Voice Processing**: Deepgram speech-to-text, Cartesia text-to-speech, OpenAI language understanding
+- **Intelligent Routing**: Automatic patient transfer between departments based on conversation analysis
 
-```
-medical_voice_agents_deepgram/
-├── triage.py              # Main application with agent definitions
-├── utils.py               # Utility functions for prompt loading
-├── prompts/               # YAML prompt configurations for each agent
-│   ├── triage_prompt.yaml
-│   ├── support_prompt.yaml
-│   └── billing_prompt.yaml
-├── pyproject.toml         # Project configuration and dependencies
-├── .env                   # Environment variables (create from env.example)
-└── README.md              # This file
-```
+## Example Usage:
+
+1. Start the application using the console command
+2. Begin speaking when you hear the system is ready
+3. The Triage Agent will listen and determine your needs
+4. You'll be automatically transferred to the appropriate specialist agent
+5. Continue the conversation naturally - context is preserved across transfers
+
+## Creator Details
+
+**Name:** Ahsen Tahir 
+**Affiliation:** LiveKit 
+**Original Source:** [LiveKit Examples Repository](https://github.com/livekit-examples/python-agents-examples/tree/main/complex-agents/medical_office_triage)  
+**Contact:** ahsen.t@coralprotocol.org
 
