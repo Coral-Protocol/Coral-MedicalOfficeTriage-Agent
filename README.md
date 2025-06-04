@@ -51,16 +51,33 @@ uv run triage.py console
 
 ## Example Usage:
 
-1. Start the application using the console command
-2. Begin speaking when you hear the system is ready
-3. The Triage Agent will listen and determine your needs
-4. You'll be automatically transferred to the appropriate specialist agent
-5. Continue the conversation naturally - context is preserved across transfers
+1. **Start the application using the console command** - The system initializes with all three agents ready
+2. **Begin speaking when you hear the system is ready** - You'll be connected to the Triage Agent first
+3. **Triage Agent interaction** - The Triage Agent will:
+   - Listen to your initial request or concern
+   - Ask clarifying questions about your medical office needs
+   - Determine whether you need appointment scheduling, medical support, or billing assistance
+   - Route you to the appropriate specialist agent based on your needs
+4. **Automatic transfer to specialist agents**:
+   - **Support Agent** - If you need:
+     - Medical appointment scheduling
+     - General patient support inquiries
+     - Information about medical services
+     - Health-related questions and guidance
+   - **Billing Agent** - If you need:
+     - Insurance verification and claims
+     - Payment processing and billing questions
+     - Cost estimates for procedures
+     - Financial assistance programs
+5. **Continue the conversation naturally** - Once transferred:
+   - The specialist agent has full context of your previous conversation
+   - You can ask follow-up questions specific to that department
+   - The agent can transfer you back to Triage or to another specialist if needed
+   - All conversation history is preserved throughout transfers
 
 ## Creator Details
 
 **Name:** Ahsen Tahir 
-**Affiliation:** LiveKit 
-**Original Source:** [LiveKit Examples Repository](https://github.com/livekit-examples/python-agents-examples/tree/main/complex-agents/medical_office_triage)  
+
 **Contact:** ahsen.t@coralprotocol.org
 
