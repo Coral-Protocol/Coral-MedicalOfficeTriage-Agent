@@ -1,55 +1,83 @@
 # Medical Office Triage Voice Agent
 
-**Responsibility:** The Medical Office Triage Voice Agent is an intelligent multi-agent voice system that automates patient routing and support in medical office environments. It uses real-time voice processing to understand patient needs and seamlessly transfers them between specialized departments (Triage, Support, and Billing) while maintaining conversation context. The system leverages Deepgram for speech-to-text, Cartesia for text-to-speech, OpenAI for natural language understanding, and LiveKit for real-time communication with noise cancellation capabilities.
+The Medical Office Triage Voice Agent is an intelligent multi-agent voice system that automates patient routing and support in medical office environments. It uses real-time voice processing to understand patient needs and seamlessly transfers them between specialized departments (Triage, Support, and Billing) while maintaining conversation context. The system leverages Deepgram for speech-to-text, Cartesia for text-to-speech, OpenAI for natural language understanding, and LiveKit for real-time communication with noise cancellation capabilities.
+
+## Responsibility
+A real-time voice agent for medical offices that automates patient intake, support, and billing routing. **Note:** The prompts in this agent are not for a multi-agent system; it currently works as a standalone agent, does not require interface agents, but will use Coral tools. It is not continuously using the `wait_for_mention` tool to receive commands from other agents.
 
 ## Details
+- **Framework:** LiveKit Agents
+- **Tools Used:** Deepgram STT, Cartesia TTS, OpenAI LLM, Silero VAD, LiveKit Plugins
+- **AI Model:** GPT-4o-mini
+- **Date Added:** June 2025
+- **License:** MIT
+- **Original Source:** [LiveKit Python Agents Examples - Medical Office Triage](https://github.com/livekit-examples/python-agents-examples/tree/main/complex-agents/medical_office_triage)
 
-**Framework:** LiveKit Agents  
-**Tools used:** Deepgram STT, Cartesia TTS, OpenAI LLM, Silero VAD, LiveKit Plugins  
-**AI model:** GPT-4o-mini  
-**Date added:** June 2025  
-**License:** MIT  
-**Original source:** [LiveKit Python Agents Examples - Medical Office Triage](https://github.com/livekit-examples/python-agents-examples/tree/main/complex-agents/medical_office_triage)
+## Use the Agent
 
-## Install Dependencies:
+### 1. Clone & Install Dependencies
+
+Ensure that the [Coral Server](https://github.com/Coral-Protocol/coral-server) is running on your system. This agent does not require the Interface Agent and is not designed for multi-agent workflows.
+<details>
 
 ```bash
+# In a new terminal clone the repository:
+git clone https://github.com/Coral-Protocol/Medical-Office-Triage-Voice-Agent.git
+
+# Navigate to the project directory:
+cd Medical-Office-Triage-Voice-Agent
+
+# Install `uv`:
 pip install uv
+
+# Install dependencies from `pyproject.toml` using `uv`:
 uv sync
 ```
 
-## Configure Environment Variables:
+</details>
+
+### 2. Configure Environment Variables
+<details>
+
+Copy the example file and add your API keys:
 
 ```bash
-# Copy example environment file
 cp .env.example .env
 ```
 
-Edit the `.env` file and add your API keys:
-- LiveKit API key and secret (get from [LiveKit Console](https://console.livekit.io))
-- OpenAI API key (get from [OpenAI Console](https://platform.openai.com))
-- Deepgram API key (get from [Deepgram Console](https://console.deepgram.com))
-- Cartesia API key (get from [Cartesia Console](https://cartesia.ai))
+Update `.env` with:
+- `LIVEKIT_URL` ([Get LiveKit Url](https://cloud.livekit.io/))
+- `LIVEKIT_API_KEY` ([Get LiveKit API Key](https://cloud.livekit.io/))
+- `LIVEKIT_API_SECRET` ([Get LiveKit API Secret](https://cloud.livekit.io/))
+- `OPENAI_API_KEY` ([Get OpenAI API Key](https://platform.openai.com/api-keys))
+- `DEEPGRAM_API_KEY` ([Get Deepgram API Key](https://deepgram.com/))
+- `CARTESIA_API_KEY` ([Get Cartesia API Key](https://cartesia.ai/))
 
-## Run agent command:
+</details>
+
+### 3. Run Agent
+<details>
 
 ```bash
 uv run triage.py console
 ```
 
-## Agent Capabilities:
+</details>
 
-- **Triage Agent**: Initial patient intake, determines appropriate department routing
-- **Support Agent**: Handles medical services, appointments, and general patient support inquiries
-- **Billing Agent**: Manages insurance inquiries, payment questions, and billing support
+## Agent System
 
-## Technical Features:
+- **Triage Agent:** Initial patient intake, determines appropriate department routing
+- **Support Agent:** Handles medical services, appointments, and general patient support inquiries
+- **Billing Agent:** Manages insurance inquiries, payment questions, and billing support
 
-- **Multi-Agent Voice System**: Three specialized AI agents working seamlessly together
-- **Real-time Voice Processing**: Deepgram speech-to-text, Cartesia text-to-speech, OpenAI language understanding
-- **Intelligent Routing**: Automatic patient transfer between departments based on conversation analysis
+## Technical Features
 
-## Example Usage:
+- **Multi-Agent Voice System:** Three specialized AI agents working seamlessly together
+- **Real-time Voice Processing:** Deepgram speech-to-text, Cartesia text-to-speech, OpenAI language understanding
+- **Intelligent Routing:** Automatic patient transfer between departments based on conversation analysis
+
+## Usage Examples
+<details>
 
 1. **Start the application using the console command** - The system initializes with all three agents ready
 2. **Begin speaking when you hear the system is ready** - You'll be connected to the Triage Agent first
@@ -75,9 +103,10 @@ uv run triage.py console
    - The agent can transfer you back to Triage or to another specialist if needed
    - All conversation history is preserved throughout transfers
 
+</details>
+
 ## Creator Details
-
-**Name:** Ahsen Tahir 
-
-**Contact:** ahsen.t@coralprotocol.org
+- **Name:** Ahsen Tahir
+- **Affiliation**: Coral Protocol
+- **Contact**: [Discord](https://discord.com/invite/Xjm892dtt3)
 
