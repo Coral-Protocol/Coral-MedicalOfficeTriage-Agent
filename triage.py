@@ -4,6 +4,7 @@ from dataclasses import dataclass, field
 from typing import Optional
 
 from dotenv import load_dotenv
+import os
 from livekit.agents import JobContext, WorkerOptions, cli, mcp
 from livekit.agents.llm import function_tool
 from livekit.agents.voice import Agent, AgentSession, RunContext
@@ -160,7 +161,7 @@ async def entrypoint(ctx: JobContext):
     await ctx.connect()
 
     # MCP Server configuration
-    base_url = "http://localhost:5555/devmode/exampleApplication/privkey/session1/sse"
+    base_url = os.getenv("CORAL_SERVER_URL")
     params = {
         "waitForAgents": 1,
         "agentId": "medical_triage_assistant",

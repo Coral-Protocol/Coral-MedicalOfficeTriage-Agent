@@ -550,7 +550,7 @@ wheels = [
 ]
 
 [[package]]
-name = "medical-voice-agents-deepgram"
+name = "medical-triage-voice-agent"
 version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
