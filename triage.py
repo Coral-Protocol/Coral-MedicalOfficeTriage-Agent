@@ -163,7 +163,7 @@ async def entrypoint(ctx: JobContext):
     # MCP Server configuration
     base_url = os.getenv("CORAL_SSE_URL")
     params = {
-        "waitForAgents": 1,
+       # "waitForAgents": 1,
         "agentId": os.getenv("CORAL_AGENT_ID"),
         "agentDescription": "You are a helpful medical office triage assistant that can help patients with appointments, billing questions, and general support."
     }
