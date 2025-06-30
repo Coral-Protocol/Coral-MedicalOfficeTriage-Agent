@@ -5,7 +5,6 @@ description = "Intelligent medical office triage system with multi-agent voice A
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
-    "langchain-mcp-adapters==0.1.7",
     "livekit-agents[cartesia,deepgram,mcp,openai,silero,groq]~=1.0",
     "livekit-plugins-noise-cancellation~=0.2",
     "python-dotenv>=1.1.0",
