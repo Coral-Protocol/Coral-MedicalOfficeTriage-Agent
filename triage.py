@@ -8,7 +8,7 @@ import os
 from livekit.agents import JobContext, WorkerOptions, cli, mcp
 from livekit.agents.llm import function_tool
 from livekit.agents.voice import Agent, AgentSession, RunContext
-from livekit.plugins import cartesia, deepgram, openai, silero
+from livekit.plugins import cartesia, deepgram, openai, silero, groq
 from livekit.plugins import noise_cancellation
 
 from utils import load_prompt
@@ -17,6 +17,21 @@ logger = logging.getLogger("medical-office-triage")
 logger.setLevel(logging.INFO)
 
 load_dotenv()
+
+def get_llm_instance():
+    """Get LLM instance based on environment configuration"""
+    llm_provider = os.getenv("LLM_PROVIDER", "openai").lower()
+    llm_model = os.getenv("LLM_MODEL", "gpt-4o-mini")
+    api_key = os.getenv("API_KEY")
+    
+    if llm_provider == "openai":
+        return openai.LLM(model=llm_model, api_key=api_key)
+    elif llm_provider == "groq":
+        return groq.LLM(model=llm_model, api_key=api_key)
+    else:
+        # Add more providers as needed
+        logger.warning(f"Unsupported LLM provider: {llm_provider}. Falling back to OpenAI.")
+        return openai.LLM(model=llm_model, api_key=api_key)
 
 @dataclass
 class UserData:
@@ -99,7 +114,7 @@ class TriageAgent(BaseAgent):
         super().__init__(
             instructions=load_prompt('triage_prompt.yaml'),
             stt=deepgram.STT(),
-            llm=openai.LLM(model="gpt-4o-mini"),
+            llm=get_llm_instance(),
             tts=cartesia.TTS(),
             vad=silero.VAD.load()
         )
@@ -120,7 +135,7 @@ class SupportAgent(BaseAgent):
         super().__init__(
             instructions=load_prompt('support_prompt.yaml'),
             stt=deepgram.STT(),
-            llm=openai.LLM(model="gpt-4o-mini"),
+            llm=get_llm_instance(),
             tts=cartesia.TTS(),
             vad=silero.VAD.load()
         )
@@ -141,7 +156,7 @@ class BillingAgent(BaseAgent):
         super().__init__(
             instructions=load_prompt('billing_prompt.yaml'),
             stt=deepgram.STT(),
-            llm=openai.LLM(model="gpt-4o-mini"),
+            llm=get_llm_instance(),
             tts=cartesia.TTS(),
             vad=silero.VAD.load()
         )
