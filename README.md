@@ -22,10 +22,10 @@ Ensure that the [Coral Server](https://github.com/Coral-Protocol/coral-server) i
 
 ```bash
 # In a new terminal clone the repository:
-git clone https://github.com/Coral-Protocol/Medical-Office-Triage-Voice-Agent.git
+git clone https://github.com/Coral-Protocol/Coral-MedicalOfficeTriage-Agent.git
 
 # Navigate to the project directory:
-cd Medical-Office-Triage-Voice-Agent
+cd Coral-MedicalOfficeTriage-Agent
 
 # Install `uv`:
 pip install uv
