@@ -34,6 +34,18 @@ pip install uv
 uv sync
 ```
 
+### Troubleshooting
+
+If you encounter errors related to post_writer, run these commands:
+
+```bash
+# Copy the client sse.py from utils to mcp package (Linux/ Mac)
+cp -r utils/sse.py .venv/lib/python3.13/site-packages/mcp/client/sse.py
+
+# OR Copy this for Windows
+cp -r utils\sse.py .venv\Lib\site-packages\mcp\client\sse.py
+```
+
 </details>
 
 ### 2. Configure Environment Variables
@@ -49,18 +61,20 @@ Update `.env` with:
 - `LIVEKIT_URL` ([Get LiveKit Url](https://cloud.livekit.io/))
 - `LIVEKIT_API_KEY` ([Get LiveKit API Key](https://cloud.livekit.io/))
 - `LIVEKIT_API_SECRET` ([Get LiveKit API Secret](https://cloud.livekit.io/))
-- `OPENAI_API_KEY` ([Get OpenAI API Key](https://platform.openai.com/api-keys))
 - `DEEPGRAM_API_KEY` ([Get Deepgram API Key](https://deepgram.com/))
 - `CARTESIA_API_KEY` ([Get Cartesia API Key](https://cartesia.ai/))
-
+- `API_KEY` ([Get OpenAI API Key](https://platform.openai.com/api-keys)) /([Get GROQ API Key](https://console.groq.com/keys))
+- configure the LLM model you want to use
 </details>
 
-### 3. Run Agent
+### 3. Run Agent in Dev Mode
 <details>
 
 ```bash
 uv run triage.py console
 ```
+If you want to run the Agent using [Coral-Studio UI](https://github.com/Coral-Protocol/coral-studio) you can do so but it may not support Voice input and outputs from the UI and only the messages sent using Coral tools will be visible.You
+clone it and run it according to the instructions in the readme and run this agent in your terminal.
 
 </details>
 
