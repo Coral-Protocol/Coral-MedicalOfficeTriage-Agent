@@ -7,8 +7,7 @@ A real-time voice agent for medical offices that automates patient intake, suppo
 
 ## Details
 - **Framework:** LiveKit Agents
-- **Tools Used:** Deepgram STT, Cartesia TTS, OpenAI LLM, Silero VAD, LiveKit Plugins
-- **AI Model:** GPT-4o-mini
+- **Tools Used:** Deepgram STT, Cartesia TTS, OpenAI/Groq LLM, Silero VAD, LiveKit Plugins
 - **Date Added:** June 2025
 - **License:** MIT
 - **Original Source:** [LiveKit Python Agents Examples - Medical Office Triage](https://github.com/livekit-examples/python-agents-examples/tree/main/complex-agents/medical_office_triage)
